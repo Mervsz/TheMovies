@@ -1,0 +1,46 @@
+{
+  "name": "theMovies",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "reload": "adb shell input text 'RR'",
+    "shake": "adb shell input keyevent 82",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.60.0",
+    "fe-common": "file:src/common",
+    "fe-components": "file:src/components",
+    "fe-models": "file:src/models",
+    "fe-theme": "file:src/theme",
+    "jetifier": "^1.6.3",
+    "react": "16.8.6",
+    "react-native": "0.60.0",
+    "react-native-fast-image": "^7.0.2",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-native-typescript-transformer": "^1.2.12",
+    "react-navigation": "^3.11.1",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.0",
+    "@babel/runtime": "7.5.2",
+    "@react-native-community/eslint-config": "0.0.3",
+    "babel-jest": "24.8.0",
+    "eslint": "6.0.1",
+    "jest": "24.8.0",
+    "metro-react-native-babel-preset": "0.54.1",
+    "react-test-renderer": "16.8.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./src/common/assets/fonts/"
+    ]
+  }
+}
