@@ -17,3 +17,10 @@ export { default as LogoWithSearchV2 } from "./Header/LogoWithSearchV2"
 
 // CustomIcon
 export { default as CustomIcon } from "./Icon/CustomIcon"
+export { default as StarRate } from "./Icon/StarRate"
+
+// Loaders
+export { default as Pageload } from "./Loaders/Pageload"
+
+//  CustomView
+export { default as ReviewItem } from "./View/ReviewItem"

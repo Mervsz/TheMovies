@@ -13,7 +13,7 @@ export default function(props: IProps){
   const { size, color, name} = props
   const path = checkIcon(name)
   return(
-    <TouchableOpacity {...props}>
+    <TouchableOpacity {...props} >
       <Image style={[{width: size, height: size, tintColor: color}]} 
       source={path} resizeMode="contain"/>
      </TouchableOpacity>
@@ -42,6 +42,10 @@ function checkIcon(name: IconTypes) : any{
       return require('fe-common/assets/img/full-star.png')
     case 'empty-star':
       return require('fe-common/assets/img/empty-star.png')
+    case 'cancel':
+      return require('fe-common/assets/img/cancel.png')
+    case 'logout':
+      return require('fe-common/assets/img/logout.png')
     default:
       return  require('fe-common/assets/img/app-icon.png')
 
