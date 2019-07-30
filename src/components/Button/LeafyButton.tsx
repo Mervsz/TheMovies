@@ -1,18 +1,24 @@
 import React from "react";
-import { TouchableOpacity, View, StyleSheet, TouchableOpacityProps } from "react-native";
+import { TouchableOpacity, View, StyleSheet, TouchableOpacityProps, ActivityIndicator } from "react-native";
 import { SansProText } from "fe-components";
 import theme from "fe-theme";
 
 interface IProps extends TouchableOpacityProps{
   title?: any
+  loading?: boolean
 }
 
 export default function(props: IProps){
   return(
     <TouchableOpacity style={styles.button} {...props}>
-      <SansProText bold style={{color: theme.background, fontSize: 20}}>
-        {props.title}
-      </SansProText>
+      {
+        !props.loading 
+        ?  <SansProText bold style={{color: theme.background, fontSize: 20}}>
+              {props.title}
+          </SansProText>
+        : <ActivityIndicator size="large" color={theme.background}/>
+
+    }
     </TouchableOpacity>
   )
 }

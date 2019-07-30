@@ -7,6 +7,9 @@ import { DEVICE_HEIGHT, DEVICE_WIDTH } from "fe-common/constants/variables/Dimen
 interface IProps extends TextInputProps{
   style?: TextStyle
   menuPress: () => any
+  logoPress: () => any
+  onSearchChange: (text: string) => any
+  toggleLogo: boolean
   title: string
 }
 
@@ -74,11 +77,11 @@ export default class LoginWithSearch extends Component<IProps,IState>{
     this.setState({isSearch:!isSearch})
   }
 
-  render({ isSearch, isLoading } = this.state, { menuPress, title } = this.props){
+  render({ isSearch, isLoading } = this.state, { menuPress, logoPress, title, onSearchChange, toggleLogo } = this.props){
   return(
     <View style={styles.header}>
       {/* Main Logo */}
-      <CustomIcon  onPress={() => alert('Modal Logout')} name="app-icon" size={45} color={theme.foreground}/>
+      <CustomIcon  onPress={logoPress} name={ toggleLogo ? "app-icon" : "logout"} size={toggleLogo ? 45 : 35 } color={theme.foreground}/>
       
       <View style={styles.input}>
         <Animated.View style={{opacity: this.textOpacity}}>
@@ -93,16 +96,17 @@ export default class LoginWithSearch extends Component<IProps,IState>{
         {
           isSearch
           ? <TextInput
-          ref={(c) => this.refInput = c}
-          style={styles.custom_input}
-          placeholder="Search"
+              ref={(c) => this.refInput = c}
+              style={styles.custom_input}
+              placeholder="Search"
+              onChangeText={onSearchChange}
           />
           : null
         }
         {
           isLoading
           ?  <ActivityIndicator color={theme.foreground} size={16}/>
-          : null
+          :  null
         }
       </Animated.View>
 
